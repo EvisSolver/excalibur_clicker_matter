@@ -4,6 +4,10 @@ import os
 import socket
 import struct
 
+
+from config import buttons
+
+
 HOLD = 0.003
 STEP = 60
 
@@ -23,10 +27,6 @@ DOWN = struct.pack("<qqHHi", 0, 0, 1, 0x110, 1)
 UP = struct.pack("<qqHHi", 0, 0, 1, 0x110, 0)
 SYN = struct.pack("<qqHHi", 0, 0, 0, 0, 0)
 
-BUTTONS = (
-    [(1485, y) for y in range(415, 940, 129)]
-    + [(x, 930) for x in range(450, 823, 93)]
-)
 
 
 async def move(x, y):
@@ -120,7 +120,7 @@ async def center(ydoo, lock):
 async def buttons(ydoo, lock):
     while True:
         async with lock:
-            for x, y in BUTTONS:
+            for x, y in buttons:
                 await click(ydoo, x, y, hold=0.05, settle=0.05)
                 await asyncio.sleep(0.1)
 
