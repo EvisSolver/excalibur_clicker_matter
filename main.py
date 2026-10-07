@@ -117,7 +117,7 @@ async def center(ydoo, lock):
         await pause_until(deadline)
 
 
-async def buttons(ydoo, lock):
+async def button_s(ydoo, lock):
     while True:
         async with lock:
             for x, y in buttons:
@@ -137,7 +137,7 @@ async def main():
 
         tasks = [
             asyncio.create_task(job(ydoo, lock))
-            for job in (meteorites, center, buttons)
+            for job in (meteorites, center, button_s)
         ]
         try:
             await asyncio.gather(*tasks)
