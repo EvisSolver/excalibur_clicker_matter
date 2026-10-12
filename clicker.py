@@ -1,18 +1,18 @@
 # SCRIPTS WITH HELPS TO MAKE THIS
-# import config, random
-# import subprocess, time, termios, sys, tty, asyncio
+import config, random
+import subprocess, time, termios, sys, tty, asyncio
 
 
-# def coords_finder(seconds):
-#     while True:
-#         coords = subprocess.run(
-#             [
-#                 "hyprctl", "cursorpos"#cursor-pos
-#             ], capture_output = True, text = True#outputs
-#         )
-#         clean_coords = coords.stdout.strip()#cleaning "_...(strips)"
-#         print(f":, {clean_coords:<30}", end = "\r", flush = True)
-#         time.sleep(seconds)
+def coords_finder(seconds):
+    while True:
+        coords = subprocess.run(
+            [
+                "hyprctl", "cursorpos"#cursor-pos
+            ], capture_output = True, text = True#outputs
+        )
+        clean_coords = coords.stdout.strip()#cleaning "_...(strips)"
+        print(f":, {clean_coords:<30}", end = "\r", flush = True)
+        time.sleep(seconds)
 
 # async def keyboard_detector(stop):
 #     fd = sys.stdin.fileno()
