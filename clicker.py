@@ -210,7 +210,8 @@ async def center(ydoo, lock):
 
 
 async def energy_reward_claim(ydoo, lock):
-    loop = asyncio._get_running_loop()
+    """clicking every 10 sec(with speed 0.2) on coords(1380, 165(energy-reward for get a matter))"""
+    loop = asyncio._get_running_loop() # private _ FOR SPEED(C Lang), but no have checks
     while True:
         async with lock:
             deadline = loop.time() + 10
