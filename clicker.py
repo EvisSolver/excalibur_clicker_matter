@@ -209,6 +209,16 @@ async def center(ydoo, lock):
         await pause_until(deadline)
 
 
+async def energy_reward_claim(ydoo, lock):
+    loop = asyncio._get_running_loop()
+    while True:
+        async with lock:
+            deadline = loop.time() + 10
+            await click(ydoo, 1380, 165)
+            await asyncio.sleep(0.2)
+        await pause_until(deadline)
+
+
 async def button_s(ydoo, lock):
     '''buttons which clicking(x, y) | cfg inconfig/buttons | [[0 cfg - skill's], [1 cfg - upgrades]]'''
     while True:

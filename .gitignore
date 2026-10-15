@@ -1,2 +1,3 @@
 venv_for_clicker/
 __pycache__/
+*.pyc

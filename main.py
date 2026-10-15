@@ -12,7 +12,7 @@ async def main():
 
         tasks = [
             asyncio.create_task(job(ydoo, lock))
-            for job in (meteorites, center, button_s)
+            for job in (meteorites, center, button_s, energy_reward_claim)
         ]
         try:
             await asyncio.gather(*tasks)
